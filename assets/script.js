@@ -3,8 +3,8 @@ function generatePassword(){
   var digits =  ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
   var upperC =  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
   var lowerC =  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-  var specialC = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':',];
-  var availableC
+  var specialC = ['@', '%', '+', '/', "'", '!', '#', '$', '^', '?', ':',];
+  var availableC = []
 
   howManyC = prompt("How many characters do you want in your password? Choose between 8-128 characters.");
   if (howManyC < 8 || howManyC > 128) {
@@ -17,21 +17,33 @@ function generatePassword(){
 
   withUpperC = confirm("Do you want uppercase characters?");
 
-  withdigits = confirm("Do you want to use numbers?");
+  withDigits = confirm("Do you want to use numbers?");
 
   withSpecialC = confirm("Do you want special characters?");
 
-  if (withLowerC === false && withUpperC === false &&  withdigits === false && withSpecialC === false) {
+  if (withLowerC === false && withUpperC === false &&  withDigits === false && withSpecialC === false) {
     return "Please select at least one character type.";
   };
 
-
-
-
-
-
-
-
+  if (withLowerC) {
+    availableC = availableC.concat(lowerC);
+  }
+  if (withUpperC) {
+    availableC = availableC.concat(upperC);
+  }
+  if (withDigits) {
+    availableC = availableC.concat(digits);
+  }
+  if (withSpecialC) {
+    availableC = availableC.concat(specialC);
+  };
+  
+  let finalPassword = ""
+  for (let i = 0; i < howManyC; i++) {
+    let rng =[Math.floor(Math.random() * availableC.length)];
+    finalPassword = finalPassword + availableC[rng];
+  }
+  return finalPassword;
 
 }
 var generateBtn = document.querySelector("#generate");
