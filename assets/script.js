@@ -38,9 +38,9 @@ function generatePassword(){
     availableC = availableC.concat(specialC);
   };
   
-  let finalPassword = ""
-  for (let i = 0; i < howManyC; i++) {
-    let rng =[Math.floor(Math.random() * availableC.length)];
+  var finalPassword = ""
+  for (var i = 0; i < howManyC; i++) {
+    var rng =[Math.floor(Math.random() * availableC.length)];
     finalPassword = finalPassword + availableC[rng];
   }
   return finalPassword;
