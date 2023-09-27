@@ -4,6 +4,7 @@ function generatePassword(){
   var upperC =  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
   var lowerC =  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
   var specialC = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':',];
+  var availableC
 
   howManyC = prompt("How many characters do you want in your password? Choose between 8-128 characters.");
   if (howManyC < 8 || howManyC > 128) {
@@ -20,7 +21,9 @@ function generatePassword(){
 
   withSpecialC = confirm("Do you want special characters?");
 
-  
+  if (withLowerC === false && withUpperC === false &&  withdigits === false && withSpecialC === false) {
+    return "Please select at least one character type.";
+  };
 
 
 
