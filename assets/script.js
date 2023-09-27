@@ -10,8 +10,26 @@ function generatePassword(){
     return "Please enter a number between 8-128.";
   } else if (isNaN(howManyC)) {
     howManyC = prompt("Please enter a valid number.");
-
   }
+
+  withLowerC = confirm("Do you want lowercase characters?");
+
+  withUpperC = confirm("Do you want uppercase characters?");
+
+  withdigits = confirm("Do you want to use numbers?");
+
+  withSpecialC = confirm("Do you want special characters?");
+
+  
+
+
+
+
+
+
+
+
+
 }
 var generateBtn = document.querySelector("#generate");
 
